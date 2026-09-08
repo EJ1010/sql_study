@@ -49,3 +49,21 @@ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'davidGlobal'@'%';
 # SQL 기본 개념 // 기본 문법
 # Sakila
 # 실제 사이트에서 데이터 수집하고 수집한 것을 가지고 MySQL에 저장
+
+
+USE sakila;
+SELECT * FROM film LIMIT 10;
+
+SELECT COUNT(*) FROM film;
+# 경쟁사 사이트 크롤링 : 상품 개수
+
+SELECT COUNT(*) FROM category;
+
+SELECT * FROM payment LIMIT 10;
+
+	SELECT  customer_id,
+		    SUM(amount) AS total_revenue
+	  FROM  payment
+  GROUP BY  customer_id
+  ORDER BY  total_revenue DESC
+     LIMIT  10;
